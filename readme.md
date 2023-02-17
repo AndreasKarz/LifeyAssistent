@@ -16,7 +16,7 @@ Die Struktur des Chats ist als JSON definiert und kann beliebig weiter orchestri
 
 Dies ist nur ein kleiner Ausschnitt fürs einfachere Verständnis.
 
-```JSON
+```json
 {
     elements: [
         {
