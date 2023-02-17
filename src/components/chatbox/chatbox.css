@@ -1,0 +1,71 @@
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: rgba(210, 210, 210, 0);
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(210, 210, 210, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(210, 210, 210, 0.7);
+}
+
+.chatArea {
+	padding: 18px;
+	text-align: left;
+}
+
+.element {
+	font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial,
+		sans-serif;
+	font-size: 1rem;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	margin-bottom: 27px;
+
+	padding: 9px;
+	border-radius: 9px;
+	text-align: left;
+	-webkit-box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
+		0 1px 5px 0 rgb(0 0 0 / 20%);
+	box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
+		0 1px 5px 0 rgb(0 0 0 / 20%);
+}
+
+.element.sl {
+	background-color: rgba(180, 73, 84, 0.2);
+	margin-left: 36px;
+}
+
+.element.you {
+	background-color: #ffffff;
+	margin-right: 36px;
+}
+
+textarea {
+	border: 1px solid #ededed;
+	font-size: 14px;
+	line-height: 1.5;
+	padding: 5px;
+	resize: none;
+	width: calc(100% - 12px);
+	margin-top: 9px;
+}
+
+.option {
+	display: inline-flex;
+	background-color: #d82034 !important;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	color: #ffffff !important;
+	font-size: 13px;
+	cursor: pointer !important;
+	padding: 3px 5px 4px 5px;
+	border-radius: 6px;
+}

@@ -1,0 +1,14 @@
+.z-depth-3 {
+	-webkit-box-shadow: 0 8px 17px 2px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%),
+		0 5px 5px -3px rgb(0 0 0 / 20%);
+	box-shadow: 0 8px 17px 2px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%),
+		0 5px 5px -3px rgb(0 0 0 / 20%);
+}
+
+.header {
+	font-family: Perpetua, Baskerville, 'Big Caslon', 'Palatino Linotype', Palatino, 'URW Palladio L',
+		'Nimbus Roman No9 L', serif;
+	font-style: italic;
+	font-size: 36px;
+	color: white;
+}

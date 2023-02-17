@@ -1,0 +1,65 @@
+{
+	"customer": {
+		"firstName": "",
+		"lastName": "",
+		"salutation": "Herr",
+		"yearOfBirth": 1965,
+		"creationDate": "2015-03-25"
+	},
+	"contracts": [
+		{
+			"_id": "137402982",
+			"number": "D8AA7C",
+			"type": "PensionFundPolicy",
+			"stakeholder": "Sogescol",
+			"Purchase": true,
+			"WEF": true,
+			"Retirement": false,
+			"options": ["fvaafvt4ca", "fsdgesgf4rgsg"]
+		}
+	],
+	"options": [
+		{
+			"id": "entry",
+			"type": "options",
+			"title": "Zu welchen Themen kann ich Ihnen behilflich sein?",
+			"options": ["Vertrag", "Konto", "Direktnachricht", "Contracts", "Documents", "certificate"]
+		},
+		{
+			"id": "fvaafvt4ca",
+			"title": "Adresse anpassen",
+			"description": "Hier geht es direkt zu den Adressänderungen",
+			"link": ""
+		},
+		{
+			"id": "purchase",
+			"title": "Einkauf simulieren",
+			"description": "Steuernsparen oder Deckungslücke schliessen. Hier gehts zum Einkauf Simulation.",
+			"link": ""
+		},
+		{
+			"id": "nopurchase",
+			"title": "Einkauf simulieren",
+			"description": "Steuernsparen oder Deckungslücke schliessen. Hier gehts zum Einkauf Simulation.",
+			"link": ""
+		},
+		{
+			"id": "noretirement",
+			"type": "options",
+			"title": "Leider können sie auf diesem Vertrag keine frühzeige Pensionierung simulieren. Dies kann verschiedene Gründe haben. Möchten Sie gerne ihren Berater kontaktieren?",
+			"description": "Steuernsparen oder Deckungslücke schliessen. Hier gehts zum Einkauf Simulation.",
+			"options": ["Anrufen", "Mail", "Direktnachricht"]
+		},
+		{
+			"id": "Direktnachricht",
+			"type": "message",
+			"answer": "Herzlichen Dank, ihre Mitteilung wurde an ihren Berater versandt. Kann ich Ihnen noch weiter helfen?",
+			"options": ["Danke", "Ja"]
+		},
+		{
+			"id": "Danke",
+			"type": "Info",
+			"answer": "Dann wünschen wir ihnen noch einen schönen {Zeit} und empfehlen sie mich weiter."
+		}
+	]
+}
