@@ -1,10 +1,9 @@
-import { useRef, useState } from 'react';
-import useAutosizeTextArea from './useAutosizeTextArea';
 import Option from './option';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
+import { TextareaAutosize } from '@mui/material';
 
 interface ElementProps {
 	type: string;
@@ -12,27 +11,22 @@ interface ElementProps {
 	options?: string[];
 	textbox?: boolean;
 	values?: string[];
+	handler?: (params: string) => object;
 }
 
 export default function Element(props: ElementProps) {
-	const [value, setValue] = useState('');
-	const textAreaRef = useRef<HTMLTextAreaElement>(null);
-
-	useAutosizeTextArea(textAreaRef.current, value);
-
-	const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
-		const val = evt.target?.value;
-
-		setValue(val);
-	};
-
 	return (
 		<div className={`element ${props.type}`}>
 			{props.msg}
 			{props.options != null && (
 				<div>
 					{props.options.map((id) => {
-						return <Option id={id} />;
+						return (
+							<Option
+								id={id}
+								handler={props.handler}
+							/>
+						);
 					})}
 				</div>
 			)}
@@ -63,16 +57,7 @@ export default function Element(props: ElementProps) {
 					</RadioGroup>
 				</FormControl>
 			)}
-			{props.textbox != null && (
-				// https://mui.com/base/react-textarea-autosize/
-				<textarea
-					onChange={handleChange}
-					placeholder='...'
-					ref={textAreaRef}
-					rows={2}
-					value={value}
-				/>
-			)}
+			{props.textbox != null && <TextareaAutosize />}
 		</div>
 	);
 }

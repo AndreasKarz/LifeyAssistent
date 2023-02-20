@@ -17,49 +17,42 @@ Die Struktur des Chats ist als JSON definiert und kann beliebig weiter orchestri
 Dies ist nur ein kleiner Ausschnitt fürs einfachere Verständnis.
 
 ```json
-{
-    elements: [
-        {
-            id: "entry"
-            text: "Zu welchen Themen kann ich Ihnen behilflich sein?"
-            options: ["Vertrag", "Konto", "Direktnachricht", "Contracts", "Documents", "certificate"]
-        },
-        {
-            id: "followup"
-            text: "Kann ich noch etwas für sie tun?"
-            options: ["yes", "No"]
-        },
-        {
-            id: "bye"
-            text: "Dann wünsche ich ihnen einen schönen Tag und empfehlen sie mich doch weiter."
-        }
-    ],
-    options: [
-        {
-            id: "account"
-            text: "Mein Profil"
-            action: "#/profile"
-            followup: "followup"
-        },
-        {
-            id: "yes"
-            text: "Ja gerne"
-            action: null
-            followup: "entry"
-        },
-        {
-            id: "no"
-            text: "Nein, alles gut"
-            action: null
-            followup: "entry"
-        }
-    ]
-}
+	"elements": [
+		{
+			"id": "entry",
+			"title": "Zu welchen Themen kann ich Ihnen behilflich sein?",
+			"answer": {
+				"text": "Mich interessiert das Thema:",
+				"options": ["contract", "account", "contact", "documents", "certificate"]
+			}
+		},
+		{
+			"id": "account",
+			"title": "Wie kann ich Ihnen bei Ihrem Konto helfen?",
+			"answer": {
+				"text": "Ich würde gerne in meinem Profil Folgendes ändern:",
+				"options": ["phone", "address"]
+			}
+		},
+		{
+			"id": "phone",
+			"action": "#/addressoverview",
+			"title": "Ich habe das Formular zur Adressänderung für Sie geöffnet. Dort können Sie Ihre Adressen anpassen. Kann ich Sie sonst noch unterstützen?",
+			"answer": {
+				"text": "Danke, ",
+				"options": ["entry", "no"]
+			}
+		},
+		{
+			"id": "no",
+			"title": "Dann wünsche ich Ihnen noch einen schönen Tag und empfehlen Sie uns doch weiter."
+		}
+	]
 ```
 
 ## Context
 
-Für den Chatablauf ist ein Context vorhanden, in den die gewählten Elemente injected werden. Aus diesem Context wird der Chat gerendert. Der Context kann bei bestimmten actions dann an den Helpdesk oder den Berater gesandt werden, damit diese direkt über den ganzen Verlauf informiert sind.
+Für den Chatablauf ist ein State 'chat' vorhanden, in den die gewählten Elemente injected werden. Aus diesem wird der Chat gerendert. Der State kann bei bestimmten actions dann an den Helpdesk oder den Berater gesandt werden, damit diese direkt über den ganzen Verlauf informiert sind.
 
 ## Tools
 

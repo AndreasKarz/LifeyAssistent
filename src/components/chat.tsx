@@ -1,6 +1,8 @@
 import Header from './chatbox/header';
 import './chatbox/chatbox.css';
-import Element from './chatbox/Element';
+import Element from './chatbox/element';
+import data from '../data.json';
+import { useState } from 'react';
 
 const CHATBOXSTYLES = {
 	position: 'fixed',
@@ -15,6 +17,31 @@ const CHATBOXSTYLES = {
 };
 
 export default function Chat() {
+	const [chat, setChat] = useState(['entry']);
+
+	const addElement = (id: string) => {
+		setChat((current) => [...current, id]);
+	};
+
+	const chatItems = chat.map((el) => {
+		var chatElement = data.elements.find((item) => item.id === el);
+
+		return (
+			<>
+				<Element
+					type='sl'
+					msg={chatElement?.title}
+				/>
+				<Element
+					type='you'
+					msg={chatElement?.answer?.text}
+					options={chatElement?.answer?.options}
+					handler={addElement}
+				/>
+			</>
+		);
+	});
+
 	return (
 		<div
 			style={CHATBOXSTYLES}
@@ -25,45 +52,11 @@ export default function Chat() {
 				style={{ flexGrow: 1, overflowY: 'auto' }}
 				className='chatArea'
 			>
-				<Element
-					type='sl'
-					msg='Zu welchen Themen kann ich Ihnen behilflich sein?'
-				/>
-				<Element
-					type='you'
-					msg='Mich interessiert das Thema:'
-					options={['changeAddress', 'simEarlyRetirement', 'orderCertificate']}
-				/>
-				<Element
-					type='sl'
-					msg='Leider können wir ihre Frühpensionierung nicht online berechnen. Möchten sie gerne ihren persönlichen Berater kontaktieren?'
-				/>
-				<Element
-					type='you'
-					msg='Ich möchte:'
-					options={['contactAdvisorPhone', 'contactAdvisorMessage', 'contactAdvisorRecall', 'no']}
-				/>
-				<Element
-					type='sl'
-					msg='Wann darf sie ihr persönlichen Berater anrufen?'
-				/>
+				{chatItems}
 				<Element
 					type='you'
 					msg='Ich bin erreichbar:'
 					values={['Vormittag', 'Nachmittag', 'Abend']}
-				/>
-				<Element
-					type='sl'
-					msg='Danke, ihr Berater wird so morgen Vormittag zurückrufen. Kann ich sonst noch etwas für sie tun?'
-				/>
-				<Element
-					type='you'
-					msg='Danke,'
-					options={['contactAdvisorMessage', 'no']}
-				/>{' '}
-				<Element
-					type='sl'
-					msg='Bitte schreiben sie ihre Nachricht an ihren persönlichen Berater'
 				/>
 				<Element
 					type='you'
