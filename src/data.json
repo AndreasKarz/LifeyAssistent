@@ -45,6 +45,14 @@
 			}
 		},
 		{
+			"id": "address",
+			"title": "Ich habe das Formular zur Anpassung Ihrer Adresse für Sie geöffnet. Kann ich Sie sonst noch unterstützen?",
+			"answer": {
+				"text": "Danke, ",
+				"options": ["entry", "no"]
+			}
+		},
+		{
 			"id": "no",
 			"title": "Dann wünsche ich Ihnen noch einen schönen Tag und empfehlen Sie uns doch weiter."
 		}
