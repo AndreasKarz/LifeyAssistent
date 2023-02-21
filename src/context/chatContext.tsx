@@ -50,10 +50,9 @@ export function ChatProvider({ children }: ContextProviderProps) {
 	}
 
 	function setElementUsed(uuid: string) {
-		let newArray = [...chatArray];
-		newArray.forEach((item) => {
+		chatArray.map((item) => {
 			if (item.uuid === uuid) {
-				item.used = true;
+				return { ...item, used: true };
 			}
 		});
 	}
