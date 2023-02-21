@@ -1,4 +1,5 @@
-import React from 'react';
+import { useContext } from 'react';
+import { ChatContext } from '../context/chatContext';
 
 const MONITORBOXSTYLES = {
 	position: 'fixed',
@@ -14,11 +15,19 @@ const MONITORBOXSTYLES = {
 };
 
 export default function Monitor() {
+	const context = useContext(ChatContext);
+
+	const ChatItems = context?.chatArray.map((el) => {
+		return <div key={el.uuid}>{el.text}</div>;
+	});
+
 	return (
 		<div style={MONITORBOXSTYLES}>
 			<br />
 			Monitor
-			<pre></pre>
+			<br />
+			<button onClick={() => context?.addChatElement('account')}>Add Account</button>
+			{ChatItems}
 		</div>
 	);
 }
