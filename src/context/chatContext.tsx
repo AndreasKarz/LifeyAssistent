@@ -4,14 +4,18 @@ import data from '../data.json';
 export const ChatContext = React.createContext<null | ChatContextType>(null);
 
 export type ChatElementType = {
-	uuid: string;
-	id: string;
-	timestamp: Date;
-	text: string;
-	used: boolean;
+	uuid: string; // eindeutige ID im Chat Verlauf und als Key
+	id: string; // id des Element Typs
+	timestamp: Date; // Zeitstempel im Chatverlauf
+	text: string; // Angezeigter Text im ChatElement
+	used: boolean; // Default auf false, sobald angeklickt geht es auf true und das Element hat keinen pointer-event mehr (chatbox.css)
 	answer?: {
-		text: string;
-		options: string[];
+		// Antwort Element
+		text: string; // Angezeigter Text
+		options: string[]; // Optionsmöglichkeiten =>
+		values?: string[]; // Muss noch weiter ausgebaut werden als Objekt option/checkbox etc.
+		msg?: string; // Hier wird die Nachricht gespeichert, falls eine Textbox aktiviert wurde
+		textbox?: boolean; // Flag, um textbox ein-/auszublenden
 	};
 };
 
@@ -52,7 +56,6 @@ export function ChatProvider({ children }: ContextProviderProps) {
 				item.used = true;
 			}
 		});
-		console.log(newArray);
 	}
 
 	return (

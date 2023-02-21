@@ -4,43 +4,43 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import { TextareaAutosize } from '@mui/material';
+import { ChatElementType } from '../../context/chatContext';
 
 interface ElementProps {
+	element: ChatElementType;
 	type: string;
-	msg: string;
-	options?: string[];
-	textbox?: boolean;
-	values?: string[];
-	uuid?: string;
+	text: string;
 }
 
 export default function Element(props: ElementProps) {
+	const elm = props.element;
+
 	return (
-		<div className={`element ${props.type}`}>
-			{props.msg}
-			{props.options != null && (
+		<div className={`element ${props.type} ` + (elm.used ? ' disabled' : '')}>
+			{props.text}
+			{props.type === 'you' && elm.answer?.options != null && (
 				<div>
-					{props.options.map((id) => {
+					{elm.answer?.options.map((id) => {
 						return (
 							<Option
 								id={id}
-								uuid={props.uuid ?? crypto.randomUUID()}
-								key={props.uuid + id}
+								uuid={elm.uuid}
+								key={elm.uuid + id}
 							/>
 						);
 					})}
 				</div>
 			)}
-			{props.values != null && (
+			{props.type === 'you' && elm.answer?.values != null && (
 				<FormControl>
 					<RadioGroup
 						row
 						name='row-radio-buttons-group'
 					>
-						{props.values.map((id) => {
+						{elm.answer?.values.map((id) => {
 							return (
 								<FormControlLabel
-									key={props.uuid + id}
+									key={elm.uuid + id}
 									value={id}
 									control={
 										<Radio
@@ -59,7 +59,7 @@ export default function Element(props: ElementProps) {
 					</RadioGroup>
 				</FormControl>
 			)}
-			{props.textbox != null && <TextareaAutosize />}
+			{props.type === 'you' && elm.answer?.textbox != null && <TextareaAutosize />}
 		</div>
 	);
 }
