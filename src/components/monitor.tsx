@@ -24,9 +24,8 @@ export default function Monitor() {
 	return (
 		<div style={MONITORBOXSTYLES}>
 			<br />
-			Monitor
+			<b>Monitor</b>
 			<br />
-			<button onClick={() => context?.addChatElement('account')}>Add Account</button>
 			{ChatItems}
 		</div>
 	);

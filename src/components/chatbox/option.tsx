@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+import { ChatContext } from '../../context/chatContext';
+
 type Option = {
 	id: string;
 	text: string;
@@ -52,10 +55,12 @@ const dummyOptions: Option[] = [
 
 interface OptionProps {
 	id: string;
-	handler?: (params: string) => object;
+	uuid: string;
 }
 
 export default function Option(props: OptionProps) {
+	const context = useContext(ChatContext);
+
 	const option = dummyOptions.find((option) => option.id === props.id);
 
 	function executor(option: Option) {
@@ -63,7 +68,8 @@ export default function Option(props: OptionProps) {
 		if (option.action != null) {
 			alert(option.action);
 		}
-		props.handler(option?.id);
+		context?.addChatElement(option?.id);
+		context?.setElementUsed(props.uuid);
 	}
 
 	return (

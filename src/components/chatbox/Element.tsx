@@ -11,7 +11,7 @@ interface ElementProps {
 	options?: string[];
 	textbox?: boolean;
 	values?: string[];
-	handler?: (params: string) => object;
+	uuid?: string;
 }
 
 export default function Element(props: ElementProps) {
@@ -24,7 +24,8 @@ export default function Element(props: ElementProps) {
 						return (
 							<Option
 								id={id}
-								handler={props.handler}
+								uuid={props.uuid ?? crypto.randomUUID()}
+								key={props.uuid + id}
 							/>
 						);
 					})}
@@ -39,6 +40,7 @@ export default function Element(props: ElementProps) {
 						{props.values.map((id) => {
 							return (
 								<FormControlLabel
+									key={props.uuid + id}
 									value={id}
 									control={
 										<Radio

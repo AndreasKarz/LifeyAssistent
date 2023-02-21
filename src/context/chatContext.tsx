@@ -18,6 +18,7 @@ export type ChatElementType = {
 type ChatContextType = {
 	chatArray: ChatElementType[];
 	addChatElement: (id: string) => void;
+	setElementUsed: (uuid: string) => void;
 };
 
 type ContextProviderProps = {
@@ -44,11 +45,22 @@ export function ChatProvider({ children }: ContextProviderProps) {
 		setChatArray((oldArray) => [...oldArray, el]);
 	}
 
+	function setElementUsed(uuid: string) {
+		let newArray = [...chatArray];
+		newArray.forEach((item) => {
+			if (item.uuid === uuid) {
+				item.used = true;
+			}
+		});
+		console.log(newArray);
+	}
+
 	return (
 		<ChatContext.Provider
 			value={{
 				chatArray: chatArray,
 				addChatElement: (id) => addChatElement(id),
+				setElementUsed: (uuid) => setElementUsed(uuid),
 			}}
 		>
 			{children}

@@ -1,9 +1,8 @@
 import Header from './chatbox/header';
 import './chatbox/chatbox.css';
 import Element from './chatbox/element';
-import data from '../data.json';
-import { useContext, useState } from 'react';
-import { ChatContext, ChatElementType } from '../context/chatContext';
+import { useContext } from 'react';
+import { ChatContext } from '../context/chatContext';
 
 const CHATBOXSTYLES = {
 	position: 'fixed',
@@ -19,29 +18,22 @@ const CHATBOXSTYLES = {
 
 export default function Chat() {
 	const context = useContext(ChatContext);
-
-	const [chat, setChat] = useState(['entry']);
-
-	const addElement = (id: string) => {
-		setChat((current) => [...current, id]);
-	};
-
 	const chatItems = context?.chatArray.map((chatElement) => {
-		//var chatElement = data.elements.find((item) => item.id === el);
-
 		return (
-			<>
+			<div key={chatElement.uuid}>
 				<Element
+					key={chatElement.uuid + 'q'}
 					type='sl'
 					msg={chatElement?.text}
 				/>
 				<Element
+					key={chatElement.uuid + 'a'}
 					type='you'
 					msg={chatElement?.answer?.text}
 					options={chatElement?.answer?.options}
-					handler={context.addChatElement}
+					uuid={chatElement.uuid}
 				/>
-			</>
+			</div>
 		);
 	});
 
