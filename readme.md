@@ -14,7 +14,7 @@ Die Struktur des Chats ist als JSON definiert und kann beliebig weiter orchestri
 
 ## Design
 
-[Figma](https://www.figma.com/file/ZWqSXBIXFZvT5rsMLJU3pc/Assistant)
+[Figma](https://www.figma.com/file/ZWqSXBIXFZvT5rsMLJU3pc/Assistant?node-id=1011%3A3346&t=e4VchsIRQr5BOoyM-0)
 
 ## Struktur
 
