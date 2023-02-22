@@ -6,7 +6,8 @@ import { ChatContext } from '../context/chatContext';
 
 export default function Chat() {
 	const context = useContext(ChatContext);
-	const chatItems = context?.chatArray.map((chatElement) => {
+	const chatItems = context?.chatArray.map((chatElement, idx) => {
+		const last = context?.chatArray.length == idx + 1;
 		return (
 			<div key={chatElement.uuid}>
 				<Element
@@ -14,6 +15,7 @@ export default function Chat() {
 					key={chatElement.uuid + 'q'}
 					type='sl'
 					text={chatElement.text}
+					last={last}
 				/>
 				{chatElement.answer != null && (
 					<Element
@@ -21,6 +23,7 @@ export default function Chat() {
 						key={chatElement.uuid + 'a'}
 						type='you'
 						text={chatElement.answer.text}
+						last={last}
 					/>
 				)}
 			</div>

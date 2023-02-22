@@ -69,7 +69,6 @@ export default function Option(props: OptionProps) {
 			alert(option.action);
 		}
 		context?.addChatElement(option?.id);
-		context?.setElementUsed(props.uuid);
 	}
 
 	return (

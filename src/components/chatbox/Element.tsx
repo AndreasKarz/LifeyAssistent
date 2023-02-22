@@ -10,13 +10,14 @@ interface ElementProps {
 	element: ChatElementType;
 	type: string;
 	text: string;
+	last: boolean;
 }
 
 export default function Element(props: ElementProps) {
 	const elm = props.element;
 
 	return (
-		<div className={`element ${props.type} ` + (elm.used ? ' disabled' : '')}>
+		<div className={`element ${props.type} ` + (props.last ? '' : ' disabled')}>
 			{props.text}
 			{props.type === 'you' && elm.answer?.options != null && (
 				<div>

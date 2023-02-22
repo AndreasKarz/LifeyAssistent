@@ -1,5 +1,9 @@
 # Lifely Assistant
 
+## [TODO]
+
+Umbauen auf [Immer](https://immerjs.github.io/immer/update-patterns) und [Reducer](https://immerjs.github.io/immer/example-setstate#usereducer--immer) - Beispiel in [Code Sandbox](https://codesandbox.io/s/chatassistant-dur0mc?file=/src/index.js)
+
 ## Idee
 
 Dieser Chat Assistent soll dem Benutzer die Kommunikation mit der Swiss Life vereinfachen und ihn schneller zu den gewünschten Inhalten führen.
