@@ -2,7 +2,7 @@
 
 ## [TODO]
 
-Umbauen auf [Immer](https://immerjs.github.io/immer/update-patterns) und [Reducer](https://immerjs.github.io/immer/example-setstate#usereducer--immer) - Beispiel in [Code Sandbox](https://codesandbox.io/s/chatassistant-dur0mc?file=/src/index.js)
+Umbauen auf [Immer](https://immerjs.github.io/immer/update-patterns) und [Reducer](https://immerjs.github.io/immer/example-setstate#usereducer--immer) - Beispiel in [Code Sandbox](https://codesandbox.io/s/react-typescript-immer-chatassistant-80rvoc)
 
 ## Idee
 
